@@ -1,0 +1,3 @@
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Debug\AnimeTestApp.vcxproj.AssemblyReference.cache
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Debug\AnimeTestApp.MainForm.resources
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Debug\AnimeTestApp.vcxproj.GenerateResource.cache

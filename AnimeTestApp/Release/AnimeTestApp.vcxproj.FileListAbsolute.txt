@@ -1,0 +1,2 @@
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Release\AnimeTestApp.MainForm.resources
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Release\AnimeTestApp.vcxproj.GenerateResource.cache

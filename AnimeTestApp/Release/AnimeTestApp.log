@@ -1,0 +1,14 @@
+﻿  Main.cpp
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\MainForm.h(634,43): warning C4677: createQuestion: сигнатура члена, не являющегося частным, содержит частный тип сборки "Question"
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Question.h(10): message : см. объявление "Question"
+  MainForm.cpp
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\MainForm.h(634,43): warning C4677: createQuestion: сигнатура члена, не являющегося частным, содержит частный тип сборки "Question"
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Question.h(10): message : см. объявление "Question"
+  Question.cpp
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\Question.cpp(45,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  RandomQuestionsSequenseGenerator.cpp
+C:\Users\alexb\source\repos\AnimeTestApp\AnimeTestApp\RandomQuestionsSequenseGenerator.cpp(5,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  Создание кода...
+  Main.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  AnimeTestApp.vcxproj -> C:\Users\alexb\source\repos\AnimeTestApp\Release\AnimeTestApp.exe
