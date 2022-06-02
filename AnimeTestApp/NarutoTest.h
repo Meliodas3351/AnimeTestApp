@@ -16,7 +16,7 @@ inline Question^ updateNarutoQuestion(int* numberOfQuestion,int* rightAnswerCoun
 
 	switch (*numberOfQuestion) {
 	case 1: {
-		question =  ". Кого мог призвать 3-ий хокаге Хирузен Сарутоби?";
+		question =  ". Кто был личным призывом 3-го Хокаге?";
 		answer1 = "Баку";
 		answer2 = "Гамабунта";
 		answer3 = "Энма";
@@ -103,6 +103,96 @@ inline Question^ updateNarutoQuestion(int* numberOfQuestion,int* rightAnswerCoun
 		answer3 = "Райкаге";
 		answer4 = "Цучикаге";
 		rightAnswer = 3;
+		break;
+	}
+	case 11: {
+		question = ". Кто уничтожил весь клан учих?";
+		answer1 = "Обито";
+		answer2 = "Итачи";
+		answer3 = "Итачи и Обито";
+		answer4 = "Данзо";
+		rightAnswer = 3;
+		break;
+	}
+	case 12: {
+		question = ". Кто убил Шисуи?";
+		answer1 = "Шисуи";
+		answer2 = "Данзо";
+		answer3 = "Итачи";
+		answer4 = "Корень Анбу";
+		rightAnswer = 1;
+		break;
+	}
+	case 13: {
+		question = ". Как называется первая книга, которую написал Джирайя?";
+		answer1 = "Приди-приди рай";
+		answer2 = "Приди-приди тактика";
+		answer3 = "Сказание о бесстрашном шиноби";
+		answer4 = "Как использовать чакру для чайников";
+		rightAnswer = 3;
+		break;
+	}
+	case 14: {
+		question = ". Как погибла Рин Нохара?";
+		answer1 = "Попала под камень";
+		answer2 = "Попала под чидори Какаши";
+		answer3 = "Ее убил Белый Зецу";
+		answer4 = "Ее убил Черный Зецу";
+		rightAnswer = 2;
+		break;
+	}
+	case 15: {
+		question = ". Кто изображен на картинке?";
+		answer1 = "Дейдара и Сасори";
+		answer2 = "Хидан и Яхико";
+		answer3 = "Яхико и Конан";
+		answer4 = "Какузу и Хидан";
+		rightAnswer = 4;
+		break;
+	}
+	case 16: {
+		question = ". Кто из мечников тумана овладел 7 мечами?";
+		answer1 = "Мангецу Хозуки";
+		answer2 = "Фугуки Суйказан";
+		answer3 = "Джузо Бива";
+		answer4 = "Забуза Момочи";
+		rightAnswer = 1;
+		break;
+	}
+	case 17: {
+		question = ". Кто автор техники нечестивого воскрешения?";
+		answer1 = "Хаширама";
+		answer2 = "Тобирама";
+		answer3 = "Кабуто";
+		answer4 = "Орочимару";
+		rightAnswer = 2;
+		break;
+	}
+	case 18: {
+		question = ". Какая способность у правого глаза Итачи?";
+		answer1 = "Цукуеми";
+		answer2 = "Аматерасу";
+		answer3 = "Котоамацуками";
+		answer4 = "Камуи";
+		rightAnswer = 2;
+		break;
+	}
+	case 19: {
+		question = ". Как Мадара получил Ринеган?";
+		answer1 = "Пересадил клетки Хаширамы";
+		answer2 = "Пробудил";
+		answer3 = "Получил от Черного Зецу";
+		answer4 = "Неизвестно";
+		rightAnswer = 1;
+		break;
+	}
+	case 20: {
+		question = ". Какая любимая фраза Дейдары?";
+		answer1 = "Друга нельзя купить, но его можно продать";
+		answer2 = "Искусство это взрыв!";
+		answer3 = "Я стану Хокаге";
+		answer4 = "Даттебане";
+		rightAnswer = 2;
 		break;
 	}
 	default: {

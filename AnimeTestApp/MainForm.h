@@ -400,7 +400,7 @@ namespace AnimeTestApp {
 			this->pictureBoxToPrevious->Visible = false;
 			this->pictureBoxToPrevious->Click += gcnew System::EventHandler(this, &MainForm::pictureBoxToPrevious_Click);
 			this->pictureBoxToPrevious->MouseLeave += gcnew System::EventHandler(this, &MainForm::pictureBoxToPrevious_MouseLeave);
-			this->pictureBoxToPrevious->MouseHover += gcnew System::EventHandler(this, &MainForm::pictureBoxToPrevious_MouseHover);
+			this->pictureBoxToPrevious->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pictureBoxToPrevious_MouseMove);
 			// 
 			// pictureBoxToNext
 			// 
@@ -417,7 +417,7 @@ namespace AnimeTestApp {
 			this->pictureBoxToNext->Visible = false;
 			this->pictureBoxToNext->Click += gcnew System::EventHandler(this, &MainForm::pictureBoxToNext_Click);
 			this->pictureBoxToNext->MouseLeave += gcnew System::EventHandler(this, &MainForm::pictureBoxToNext_MouseLeave);
-			this->pictureBoxToNext->MouseHover += gcnew System::EventHandler(this, &MainForm::pictureBoxToNext_MouseHover);
+			this->pictureBoxToNext->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::pictureBoxToNext_MouseMove);
 			// 
 			// applyButton
 			// 
@@ -514,6 +514,7 @@ namespace AnimeTestApp {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"MainForm";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxTestImage))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxTimer))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxSettings))->EndInit();
@@ -528,6 +529,10 @@ namespace AnimeTestApp {
 		int timeToAnswer = 10;
 		int actionTimeToAnswer = timeToAnswer;
 		int countOfRightAnswers = 0;
+
+		const int COUNT_COMMON_SHABLONS = 20;
+		const int COUNT_NARUTO_SHABLONS = 20;
+		const int COUNT_ONE_PIECE_SHABLONS = 15;
 
 		int mode = 1;
 		const int COUNT_OF_MODES = 3;
@@ -585,10 +590,8 @@ namespace AnimeTestApp {
 	private: System::Void startButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		hideStartMenu();
 		showTestMenu();
-
 		changeForeColor();
-
-		generator->changeSequence();
+		changeSequence();
 		showNextTask();
 	}
 	private: System::Void startButton_MouseHover(System::Object^ sender, System::EventArgs^ e) {
@@ -619,6 +622,9 @@ namespace AnimeTestApp {
 			checkRightAnswer(rightAnswer);
 			answerTimer->Enabled = false;
 			answerButton->Text = "Далее";
+
+			delete pictureBoxTimer->Image;
+
 			pictureBoxTimer->Image = Image::FromFile(wayToTimerImages + "0.png");
 
 		}
@@ -631,6 +637,7 @@ namespace AnimeTestApp {
 
 	private: System::Void answerTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 		actionTimeToAnswer--;
+		delete pictureBoxTimer->Image;
 		pictureBoxTimer->Image = Image::FromFile(wayToTimerImages + Convert::ToString(actionTimeToAnswer) + ".png");
 		if (actionTimeToAnswer == 0) {
 			actionTimeToAnswer = timeToAnswer;
@@ -689,6 +696,7 @@ namespace AnimeTestApp {
 		hideStartMenu();
 		showSelectImageWindow();
 		actionSetting = 1;
+		delete pictureBoxSettings->Image;
 		pictureBoxSettings->Image = Image::FromFile("data/images/modes/" + Convert::ToString(mode) + ".jpg");
 	}
 
@@ -698,6 +706,7 @@ namespace AnimeTestApp {
 		hideSelectImageWindow();
 		showStartMenu();
 		if (actionSetting == 2) {
+			delete this->BackgroundImage;
 			this->BackgroundImage = Image::FromFile("data/images/menu/" + Convert::ToString(actionBackGround) + ".jpg");
 		}
 	}
@@ -705,8 +714,9 @@ namespace AnimeTestApp {
 	//pictureBoxToNext
 
 	private: System::Void pictureBoxToNext_Click(System::Object^ sender, System::EventArgs^ e) {
+		delete pictureBoxSettings->Image;
 		switch (actionSetting) {
-		case 1: {//change mode
+		case 1: {
 			if (mode == COUNT_OF_MODES) {
 				mode = 1;
 			}
@@ -723,23 +733,26 @@ namespace AnimeTestApp {
 			else {
 				actionBackGround++;
 			}
+			
 			pictureBoxSettings->Image = Image::FromFile("data/images/menu/" + Convert::ToString(actionBackGround) + ".jpg");
 			break;
 		}
 		}
 		
 	}
-	private: System::Void pictureBoxToNext_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void pictureBoxToNext_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
+		delete pictureBoxToNext->Image;
+		pictureBoxToNext->Image = Image::FromFile("data/images/buttons/right_black1.png");
+	}
+	private: System::Void pictureBoxToNext_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		delete pictureBoxToNext->Image;
 		pictureBoxToNext->Image = Image::FromFile("data/images/buttons/right_bw.png");
 	}
-	private: System::Void pictureBoxToNext_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
-		pictureBoxToNext->Image = Image::FromFile("data/images/buttons/right_black.png");
-	}
-
-    //pictureBoxToNext
+    //pictureBoxToPrevious
 
 
 	private: System::Void pictureBoxToPrevious_Click(System::Object^ sender, System::EventArgs^ e) {
+		delete pictureBoxSettings->Image;
 		switch (actionSetting) {
 		case 1: {//change mode
 			if (mode == 1) {
@@ -763,18 +776,22 @@ namespace AnimeTestApp {
 		}
 		}
 		}
-	private: System::Void pictureBoxToPrevious_MouseHover(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void pictureBoxToPrevious_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
+		delete pictureBoxToPrevious->Image;
 		pictureBoxToPrevious->Image = Image::FromFile("data/images/buttons/left_bw.png");
 	}
 	private: System::Void pictureBoxToPrevious_MouseLeave(System::Object^ sender, System::EventArgs^ e) {
-		pictureBoxToPrevious->Image = Image::FromFile("data/images/buttons/left_black.png");
+		delete pictureBoxToPrevious->Image;
+		pictureBoxToPrevious->Image = Image::FromFile("data/images/buttons/left_black1.png");
 	}
 
 	//functionsLibrary
 
 	public:
 		void createQuestion(Question^ question) {
+			resetQuestionValues();
 			if (numberOfQuestion == 11) {
+
 				labelQuestionCondition->Text = (question)->getQuestionCondition();
 				resetBackColors();
 
@@ -801,7 +818,7 @@ namespace AnimeTestApp {
 				}
 			}
 			else {
-
+				delete pictureBoxTimer->Image;
 				pictureBoxTimer->Image = Image::FromFile(wayToTimerImages + "10.png");
 				answerButton->Text = "Ответить";
 
@@ -810,14 +827,24 @@ namespace AnimeTestApp {
 				answerTimer->Enabled = true;
 				labelQuestionCondition->Text = Convert::ToString(numberOfQuestion) + (question)->getQuestionCondition();
 			}
+
 			labelAnswer1->Text = (question)->getAnswer1();
 			labelAnswer2->Text = (question)->getAnswer2();
 			labelAnswer3->Text = (question)->getAnswer3();
 			labelAnswer4->Text = (question)->getAnswer4();
 			rightAnswer = (question)->getRightAnswer();
-
+			
 			pictureBoxTestImage->Image = Image::FromFile((question)->getImage());
 			this->BackgroundImage = Image::FromFile((question)->getImage());
+		}
+		void resetQuestionValues() {
+			delete pictureBoxTestImage->Image;
+			delete this->BackgroundImage;
+			delete labelAnswer1->Text;
+			delete labelAnswer2->Text;
+			delete labelAnswer3->Text;
+			delete labelAnswer4->Text;
+			delete labelQuestionCondition->Text;
 		}
 		void checkRightAnswer(int rightAnswer) {
 			switch (rightAnswer)
@@ -927,6 +954,7 @@ namespace AnimeTestApp {
 			numberOfQuestion = 0;
 			countOfRightAnswers = 0;
 
+			delete this->BackgroundImage;
 			this->BackgroundImage = Image::FromFile("data/images/menu/"+Convert::ToString(actionBackGround)+".jpg");
 		}
 
@@ -940,7 +968,6 @@ namespace AnimeTestApp {
 			switch (mode) {
 			case 1: {
 				question = updateCommonQuestion(&actionIndex, &actionRightAnswersCounter);
-
 				break;
 			}
 			case 2: {
@@ -986,15 +1013,44 @@ namespace AnimeTestApp {
 
 		}
 
+		void changeSequence() {
+			generator->resetSequence();
+			switch (mode) {
+			case 1: {
+				generator->setCountOfShablons(COUNT_COMMON_SHABLONS);
+				break;
+			}
+			case 2: {
+				generator->setCountOfShablons(COUNT_NARUTO_SHABLONS);
+				break;
+			}
+			case 3: {
+				generator->setCountOfShablons(COUNT_ONE_PIECE_SHABLONS);
+				break;
+			}
+			}
+			generator->changeSequence();
+		}
+
 private: System::Void selectPhoneButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	actionSetting = 2;
 	hideSettingsMenu();
 	showSelectImageWindow();
+	delete pictureBoxSettings->Image;
 	pictureBoxSettings->Image = Image::FromFile("data/images/menu/" + Convert::ToString(actionBackGround) + ".jpg");
 }
 private: System::Void toMenuButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	hideSettingsMenu();
 	showStartMenu();
+}
+private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	hideSelectImageWindow();
+	hideSettingsMenu();
+	hideTestMenu();
+	this->BackgroundImage = Image::FromFile("data/images/menu/" + Convert::ToString(actionBackGround) + ".jpg");
+	showStartMenu();
+	pictureBoxToPrevious->Image = Image::FromFile("data/images/buttons/left_black1.png");
+	pictureBoxToNext->Image = Image::FromFile("data/images/buttons/right_black1.png");
 }
 };
 }

@@ -19,6 +19,7 @@ Class AnimeTestApp.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldIn
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     createQuestion(Question): PrivateScope, Public, HideBySig
+    resetQuestionValues(): PrivateScope, Public, HideBySig
     checkRightAnswer(Int32): PrivateScope, Public, HideBySig
     resetBackColors(): PrivateScope, Public, HideBySig
     hideStartMenu(): PrivateScope, Public, HideBySig
@@ -34,3 +35,4 @@ Class AnimeTestApp.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldIn
     changeForeColor(): PrivateScope, Public, HideBySig
     changeBackColor(): PrivateScope, Public, HideBySig
     dispose(): PrivateScope, Public, HideBySig
+    changeSequence(): PrivateScope, Public, HideBySig

@@ -105,6 +105,51 @@ inline Question^ updateOnePieceQuestion(int *numberOfQuestion,int *rightAnswerCo
 		rightAnswer = 4;
 		break;
 	}
+	case 11: {
+		question = ". Капитаном какой команды является Трафальгар Ло?";
+		answer1 = "Пираты Пустоты";
+		answer2 = "Пираты Сердца";
+		answer3 = "Пираты Соломенной Шляпы";
+		answer4 = "Пираты Бездны";
+		rightAnswer = 2;
+		break;
+	}
+	case 12: {
+		question = ". У кого в команде состоял Катакури?";
+		answer1 = "Пираты Большой Мамочки";
+		answer2 = "Пираты Кайдо";
+		answer3 = "Пираты Рыжеволосого";
+		answer4 = "Пираты Белоуса";
+		rightAnswer = 1;
+		break;
+	}
+	case 13: {
+		question = ". Как имя дал Гол Д Роджер своему мечу?";
+		answer1 = "Эйс";
+		answer2 = "Неизвестно";
+		answer3 = "Деку";
+		answer4 = "Шисуй";
+		rightAnswer = 1;
+		break;
+	}
+	case 14: {
+		question = ". Руководителем какой организации был Крокодайл?";
+		answer1 = "CP 0";
+		answer2 = "CP 9";
+		answer3 = "Барок Воркс";
+		answer4 = "Джерма 66";
+		rightAnswer = 3;
+		break;
+	}
+	case 15: {
+		question = ". Кто из сверхновых обладает фруктом типа Зоан?";
+		answer1 = "Юстас Кид";
+		answer2 = "Беверли Банни";
+		answer3 = "Х Дрэйк";
+		answer4 = "Трафальгар Ло";
+		rightAnswer = 3;
+		break;
+	}
 	default: {
 		answer1 = "9-10 - Король пиратов";
 		answer2 = "6-8 - Йонко";

@@ -5,11 +5,13 @@
 ref class RandomQuestionsSequenseGenerator
 {
 private:
-	//int* actionSequence = new int[10];
-	int* sequence = new int[10];
+	int sequenceLength = 30;
+	int countOfShablonsInActionTest = 20;
+	int* actionSequence = new int[11];
+	int* sequence = new int[sequenceLength];
 public:
 	RandomQuestionsSequenseGenerator() {
-		for (int k = 0; k < 10; k++) {
+		for (int k = 0; k < sequenceLength; k++) {
 			sequence[k] = k + 1;
 		}
 	}
@@ -17,8 +19,9 @@ public:
 	{
 		delete[] sequence;
 	}
+	void resetSequence();
 	void changeSequence();
 	int getSequenceMember(int* index);
 	void finalize();
+	void setCountOfShablons(int value);
 };
-

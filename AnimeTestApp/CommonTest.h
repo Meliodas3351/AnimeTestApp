@@ -79,7 +79,7 @@ inline Question^ updateCommonQuestion(int* numberOfQuestion,int* rightAnswerCoun
 		break;
 	}
 	case 8: {
-		question =". Каким типом дьявольского фрукта обладает Марко?";
+		question = ". Каким типом дьявольского фрукта обладает Марко?";
 		answer1 = "Мифический Зоан";
 		answer2 = "Логия";
 		answer3 = "Активная парамеция";
@@ -103,6 +103,97 @@ inline Question^ updateCommonQuestion(int* numberOfQuestion,int* rightAnswerCoun
 		answer3 = "Ями";
 		answer4 = "Нахт";
 		rightAnswer = 4;
+		break;
+	}
+	case 11: {
+		question = ". Как называется аниме, где в главных ролях мальчик-дворянин и его демон-слуга?";
+		answer1 = "Токийский гуль";
+		answer2 = "Баракамон";
+		answer3 = "Темный дворецкий";
+		answer4 = "Дьявольские возлюбленные";
+		rightAnswer = 3;
+		break;
+		
+	}
+	case 12: {
+		question = ". Какой основной способностью обладал Пикачу?";
+		answer1 = "Электрический разряд";
+		answer2 = "Эфирный разряд";
+		answer3 = "Молниеносные удары";
+		answer4 = "Порывы ветра";
+		rightAnswer = 1;
+		break;
+	}
+	case 13: {
+		question = ". Какая была мечта у главного персонажа аниме Демоны старшей школы? ";
+		answer1 = "Стать самым сильным демоном";
+		answer2 = "Прожить счастливую жизнь";
+		answer3 = "Создать свой гарем";
+		answer4 = "Убить своего врага Альбиона";
+		rightAnswer = 3;
+		break;
+	}
+	case 14: {
+		question = ". Как называется кафе из аниме Врата Штейна?";
+		answer1 = "Nya Queen";
+		answer2 = "Maid Cafe";
+		answer3 = "Nya Cafe";
+		answer4 = "May Queen";
+		rightAnswer = 4;
+		break;
+	}
+	case 15: {
+		question = ". Как Сенку получал азотную кислоту?";
+		answer1 = "Из капельников пещер";
+		answer2 = "Из помета летучей мыши";
+		answer3 = "Из древесной смолы";
+		answer4 = "Из перетертых ракушек";
+		rightAnswer = 2;
+		break;
+	}
+	case 16: {
+		question = ". Кто из заповедей изображен на картинке?";
+		answer1 = "Дерриер";
+		answer2 = "Монспиет";
+		answer3 = "Мерасцилла";
+		answer4 = "Глоксиния";
+		rightAnswer = 3;
+		break;
+	}
+	case 17: {
+		question = ". Кто не являлся владельцем атакующего титана?";
+		answer1 = "Эрен Йегер";
+		answer2 = "Эрен Крюгер";
+		answer3 = "Гриша Йегер";
+		answer4 = "Хистория Рейсс";
+		rightAnswer = 4;
+		break;
+	}
+	case 18: {
+		question = ". Как зовут данного персонажа из аниме Дороро?";
+		answer1 = "Дороро";
+		answer2 = "Хяккимару";
+		answer3 = "Тахомару";
+		answer4 = "Дайго";
+		rightAnswer = 2;
+		break;
+	}
+	case 19: {
+		question = ". Что за аниме на картинке?";
+		answer1 = "Обещанный неверленд";
+		answer2 = "Ванпачмен";
+		answer3 = "Рандеву с жизнью";
+		answer4 = "Корона грешника";
+		rightAnswer = 1;
+		break;
+	}
+	case 20: {
+		question = ". Кто из столпов изображен на картинке?";
+		answer1 = "Ренгоку Кеджуро";
+		answer2 = "Мицури Канроджи";
+		answer3 = "Игуро Обанай";
+		answer4 = "Санеми Шинадзугава";
+		rightAnswer = 3;
 		break;
 	}
 	default: {
